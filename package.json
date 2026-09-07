@@ -1,0 +1,32 @@
+{
+  "name": "trabajo-practico-integrador-1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/francovega690-cell/trabajo-practico-integrador-1#readme",
+  "bugs": {
+    "url": "https://github.com/francovega690-cell/trabajo-practico-integrador-1/issues"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/francovega690-cell/trabajo-practico-integrador-1.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.3",
+    "sequelize": "^6.37.8"
+  }
+}
