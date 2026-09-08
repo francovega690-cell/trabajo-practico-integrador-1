@@ -2,13 +2,12 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-import { sequelize } from "./config/database.js";
-
-import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/user.routes.js";
-import tagRoutes from "./routes/tag.routes.js";
-import articleRoutes from "./routes/article.routes.js";
-import articleTagRoutes from "./routes/articleTag.routes.js";
+import { sequelize } from "./src/config/database.js";
+import authRoutes from "./src/routes/auth.routes.js";
+import userRoutes from "./src/routes/user.routes.js";
+import tagRoutes from "./src/routes/tag.routes.js";
+import articleRoutes from "./src/routes/article.routes.js";
+import articleTagRoutes from "./src/routes/articleTag.routes.js";
 
 dotenv.config();
 
@@ -29,13 +28,15 @@ const PORT = process.env.PORT || 3000;
 const startServer = async () => {
   try {
     await sequelize.authenticate();
-    console.log("Conexion exitosa a MySQL.");
+    console.log("Conexión exitosa a MySQL.");
     await sequelize.sync({ force: false });
 
     app.listen(PORT, () => {
       console.log(`Servidor escuchando en puerto ${PORT}`);
     });
   } catch (error) {
-    console.error("Error de conexion con la Base de Datos:", error);
+    console.error("Error de conexión con la Base de Datos:", error);
   }
 };
+
+startServer();

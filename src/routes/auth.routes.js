@@ -23,8 +23,13 @@ router.post(
       minLowercase: 1,
       minNumbers: 1,
     }),
-    body("firstName").isAlpha().isLength({ min: 2, max: 50 }),
-    body("lastName").isAlpha().isLength({ min: 2, max: 50 }),
+    // Permite acentos en español y espacios para nombres compuestos
+    body("firstName")
+      .isAlpha("es-ES", { ignore: " " })
+      .isLength({ min: 2, max: 50 }),
+    body("lastName")
+      .isAlpha("es-ES", { ignore: " " })
+      .isLength({ min: 2, max: 50 }),
     body("biography").optional().isLength({ max: 500 }),
     body("avatarUrl").optional().isURL(),
     handleValidationErrors,
@@ -48,8 +53,14 @@ router.put(
   "/profile",
   [
     authMiddleware,
-    body("firstName").optional().isAlpha().isLength({ min: 2, max: 50 }),
-    body("lastName").optional().isAlpha().isLength({ min: 2, max: 50 }),
+    body("firstName")
+      .optional()
+      .isAlpha("es-ES", { ignore: " " })
+      .isLength({ min: 2, max: 50 }),
+    body("lastName")
+      .optional()
+      .isAlpha("es-ES", { ignore: " " })
+      .isLength({ min: 2, max: 50 }),
     body("biography").optional().isLength({ max: 500 }),
     body("avatarUrl").optional().isURL(),
     handleValidationErrors,

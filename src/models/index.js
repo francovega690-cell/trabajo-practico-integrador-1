@@ -34,3 +34,4 @@ Tag.belongsToMany(Article, {
 });
 
 export { User, Profile, Article, Tag, ArticleTag };
+
