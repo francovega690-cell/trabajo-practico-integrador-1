@@ -13,7 +13,14 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// Permite peticiones desde el servidor de desarrollo de Vite
+// y habilita el envío de cookies (credentials) entre frontend y backend
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
 
